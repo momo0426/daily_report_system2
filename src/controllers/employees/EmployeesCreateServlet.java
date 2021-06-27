@@ -44,13 +44,12 @@ public class EmployeesCreateServlet extends HttpServlet {
             e.setCode(request.getParameter("code"));
             e.setName(request.getParameter("name"));
             e.setPassword(
-                    EncryptUtil.getPasswordEncrypt(
-                            request.getParameter("password"),
-                                (String)this.getServletContext().getAttribute("pepper")
-                            )
-                    );
+                EncryptUtil.getPasswordEncrypt(
+                    request.getParameter("password"),
+                        (String)this.getServletContext().getAttribute("pepper")
+                    )
+                );
             e.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
-
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             e.setCreated_at(currentTime);
@@ -62,7 +61,7 @@ public class EmployeesCreateServlet extends HttpServlet {
                 em.close();
 
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("employees", e);
+                request.setAttribute("employee", e);
                 request.setAttribute("errors", errors);
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
