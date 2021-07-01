@@ -57,9 +57,19 @@ public class Report {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @Column(name = "situation", nullable = false)
+    private Integer situation;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
+
+    public Integer getSituation() {
+        return situation;
+    }
+
+    public void setSituation(Integer situation) {
+        this.situation = situation;
+    }
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;

@@ -43,6 +43,15 @@ public class Employee {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "division", nullable = false)
+    private String division;
+
+    @Column(name = "department", nullable = false)
+    private String department;
+
+    @Column(name = "position", nullable = false)
+    private String position;
+
     @Column(name = "password", length = 64, nullable = false)
     private String password;
 
@@ -108,6 +117,30 @@ public class Employee {
 
     public Timestamp getUpdated_at() {
         return updated_at;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public void setUpdated_at(Timestamp updated_at) {
