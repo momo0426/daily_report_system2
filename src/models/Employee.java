@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -43,14 +45,17 @@ public class Employee {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "division", nullable = false)
-    private String division;
+    @ManyToOne
+    @JoinColumn(name = "department_name", nullable = false)
+    private Department department;
 
-    @Column(name = "department", nullable = false)
-    private String department;
+    @ManyToOne
+    @JoinColumn(name = "division_name", nullable = false)
+    private Division division;
+
 
     @Column(name = "position", nullable = false)
-    private String position;
+    private Integer position;
 
     @Column(name = "password", length = 64, nullable = false)
     private String password;
@@ -91,6 +96,32 @@ public class Employee {
         this.name = name;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -119,29 +150,6 @@ public class Employee {
         return updated_at;
     }
 
-    public String getDivision() {
-        return division;
-    }
-
-    public void setDivision(String division) {
-        this.division = division;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;

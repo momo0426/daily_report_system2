@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -16,11 +15,11 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllDivisions",
-            query = "SELECT dv FROM Department AS dv ORDER BY dv.id DESC"
+            query = "SELECT dv FROM Division AS dv ORDER BY dv.id DESC"
             ),
     @NamedQuery(
             name = "getDivisionsCount",
-            query = "SELECT COUNT(dv) FROM Department AS dv"
+            query = "SELECT COUNT(dv) FROM Division AS dv"
             ),
 
 })
@@ -31,12 +30,11 @@ public class Division {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee;
+//    @JoinColumn(name = "employee_id", nullable = false)
+//    private Employee employee;
 
-
-    @Column(name = "division_name", nullable = false, unique = true)
-    private String division_name;
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 
 
     @Column(name = "created_at", nullable = false)
@@ -53,20 +51,20 @@ public class Division {
         this.id = id;
     }
 
-    public Employee getEmployee() {
-        return employee;
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
+
+    public String getDivision() {
+        return name;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public String getDepartment() {
-        return division_name;
-    }
-
-    public void setDepartment(String department) {
-        this.division_name = department;
+    public void setDivision(String division) {
+        this.name = division;
     }
 
     public Timestamp getCreated_at() {

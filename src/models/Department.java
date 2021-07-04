@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,12 +30,11 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee;
+//    @JoinColumn(name = "employee_id", nullable = false)
+//    private Employee employee;
 
-
-    @Column(name = "department_name", nullable = false, unique = true)
-    private String department_name;
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 
 
     @Column(name = "created_at", nullable = false)
@@ -53,20 +51,20 @@ public class Department {
         this.id = id;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+////    public Employee getEmployee() {
+//        return employee;
+//    }
+//
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 
     public String getDepartment() {
-        return department_name;
+        return name;
     }
 
     public void setDepartment(String department) {
-        this.department_name = department;
+        this.name = department;
     }
 
     public Timestamp getCreated_at() {
