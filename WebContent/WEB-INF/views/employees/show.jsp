@@ -18,7 +18,27 @@
                             <td><c:out value="${employee.name}" /></td>
                         </tr>
                         <tr>
+                        <th>所属部</th>
+                            <td><c:out value="${employee.department}" /></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                        <th>所属課</th>
+                            <td><c:out value="${employee.division}" /></td>
+                        </tr>
+                        <tr>
+                        <tr>
                             <th>役職</th>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${employee.position == 2}">部長</c:when>
+                                    <c:when test="${employee.position == 1}">課長</c:when>
+                                    <c:otherwise>課員</c:otherwise>
+                                </c:choose>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>権限</th>
                             <td>
                                 <c:choose>
                                     <c:when test="${employee.admin_flag == 1}">管理者</c:when>
