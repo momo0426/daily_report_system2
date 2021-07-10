@@ -18,11 +18,11 @@
 <br /><br />
 
 <label for="department">所属部</label><br />
-<input type="text" name="department" value="${employee.department}" />
+<input type="text" name="department" value="${employee.department.name}" />
 <br /><br />
 
 <label for="division">所属課</label><br />
-<input type="text" name="division" value="${employee.division}" />
+<input type="text" name="division" value="${employee.division.name}" />
 <br /><br />
 
 <label for="position">役職</label><br />

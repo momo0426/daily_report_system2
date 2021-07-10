@@ -13,16 +13,16 @@
                 <tr>
                     <th>社員番号</th>
                     <th>氏名</th>
+                    <th>操作</th>
                     <th>所属部</th>
                     <th>所属課</th>
-                    <th>操作</th>
                 </tr>
                 <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${employee.code}" /></td>
                         <td><c:out value="${employee.name}" /></td>
-                        <td><c:out value="${employee.department}" /></td>
-                        <td><c:out value="${employee.division}" /></td>
+                        <td><c:out value="${employee.department.name}" /></td>
+                        <td><c:out value="${employee.division.name}" /></td>
                         <td>
                             <c:choose>
                                 <c:when test="${employee.delete_flag == 1}">

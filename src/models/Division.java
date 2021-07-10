@@ -30,9 +30,6 @@ public class Division {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @JoinColumn(name = "employee_id", nullable = false)
-//    private Employee employee;
-
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
@@ -51,20 +48,12 @@ public class Division {
         this.id = id;
     }
 
-//    public Employee getEmployee() {
-//        return employee;
-//    }
-
-//    public void setEmployee(Employee employee) {
-//        this.employee = employee;
-//    }
-
-    public String getDivision() {
+    public String getName() {
         return name;
     }
 
-    public void setDivision(String division) {
-        this.name = division;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Timestamp getCreated_at() {
@@ -82,6 +71,8 @@ public class Division {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+
 
 
 }

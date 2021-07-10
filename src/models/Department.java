@@ -30,8 +30,6 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @JoinColumn(name = "employee_id", nullable = false)
-//    private Employee employee;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
@@ -51,20 +49,12 @@ public class Department {
         this.id = id;
     }
 
-////    public Employee getEmployee() {
-//        return employee;
-//    }
-//
-//    public void setEmployee(Employee employee) {
-//        this.employee = employee;
-//    }
-
-    public String getDepartment() {
+    public String getName() {
         return name;
     }
 
-    public void setDepartment(String department) {
-        this.name = department;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Timestamp getCreated_at() {
@@ -82,6 +72,7 @@ public class Department {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
 
 
 }

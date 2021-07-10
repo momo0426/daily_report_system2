@@ -46,11 +46,11 @@ public class Employee {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "department_id", nullable = true)
+    @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "division_id", nullable = true)
+    @JoinColumn(name = "division_id", nullable = false)
     private Division division;
 
 
