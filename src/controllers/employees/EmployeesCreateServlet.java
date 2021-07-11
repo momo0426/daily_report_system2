@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Department;
+import models.Division;
 import models.Employee;
 import models.validators.EmployeeValidator;
 import utils.DBUtil;
@@ -43,8 +45,15 @@ public class EmployeesCreateServlet extends HttpServlet {
 
             e.setCode(request.getParameter("code"));
             e.setName(request.getParameter("name"));
-//            e.setDepartment((Department)request.getSession().getAttribute("department"));
-//            e.setDivision((Division)request.getSession().getAttribute("division"));
+
+            int departmentId = Integer.parseInt(request.getParameter("department"));
+            Department department = em.find(Department.class, departmentId);
+            e.setDepartment(department);
+
+            int divisionId = Integer.parseInt(request.getParameter("division"));
+            Division division = em.find(Division.class, divisionId);
+            e.setDivision(division);
+
             e.setPosition(Integer.parseInt(request.getParameter("position")));
             e.setPassword(
                 EncryptUtil.getPasswordEncrypt(
