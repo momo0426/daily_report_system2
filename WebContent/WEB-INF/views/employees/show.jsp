@@ -19,6 +19,14 @@
                             <td><c:out value="${employee.name}" /></td>
                         </tr>
                         <tr>
+                            <th>所属部</th>
+                            <td><c:out value="${employee.department.name}" /></td>
+                        </tr>
+                        <tr>
+                            <th>所属課</th>
+                            <td><c:out value="${employee.division.name}" /></td>
+                        </tr>
+                        <tr>
                             <th>役職</th>
                             <td><c:choose>
                                     <c:when test="${employee.position == 2}">部長</c:when>

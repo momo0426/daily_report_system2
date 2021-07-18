@@ -57,19 +57,12 @@ public class Report {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "situation", nullable = false)
-    private Integer situation;
+    @Column(name = "approval_flag", nullable = false)
+    private Integer approval_flag;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
 
-    public Integer getSituation() {
-        return situation;
-    }
-
-    public void setSituation(Integer situation) {
-        this.situation = situation;
-    }
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
@@ -112,6 +105,14 @@ public class Report {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getApproval_flag() {
+        return approval_flag;
+    }
+
+    public void setApproval_flag(Integer approval_flag) {
+        this.approval_flag = approval_flag;
     }
 
     public Timestamp getCreated_at() {

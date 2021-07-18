@@ -93,12 +93,12 @@ button {
 }
 
 table#employee_list th {
-    width: 30%;
+    width: 20%;
     padding: 10px 2%;
 }
 
 table#employee_list td {
-    width: 29%;
+    width: 20%;
     padding: 10px 2%;
 }
 

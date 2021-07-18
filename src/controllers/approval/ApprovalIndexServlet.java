@@ -1,4 +1,4 @@
-package controllers.reports;
+package controllers.approval;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,16 +15,16 @@ import models.Report;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ReportsIndexServlet
+ * Servlet implementation class ApprovalIndex
  */
-@WebServlet("/reports/index")
-public class ReportsIndexServlet extends HttpServlet {
+@WebServlet("/approvals/index")
+public class ApprovalIndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReportsIndexServlet() {
+    public ApprovalIndexServlet() {
         super();
     }
 
@@ -34,10 +34,10 @@ public class ReportsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        int page;
-        try{
+        int page = 1;
+        try {
             page = Integer.parseInt(request.getParameter("page"));
-        } catch(Exception e) {
+        } catch(NumberFormatException e) {
             page = 1;
         }
 
@@ -48,18 +48,17 @@ public class ReportsIndexServlet extends HttpServlet {
 
         long reports_count = (long)em.createNamedQuery("getReportsCount", Long.class)
                 .getSingleResult();
-
         em.close();
 
         request.setAttribute("reports", reports);
-        request.setAttribute("reports_count", reports_count);
+        request.setAttribute("report_count", reports_count);
         request.setAttribute("page", page);
         if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/approvals/index.jsp");
         rd.forward(request, response);
     }
 
