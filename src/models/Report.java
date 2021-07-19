@@ -17,23 +17,13 @@ import javax.persistence.Table;
 
 @Table(name = "reports")
 @NamedQueries({
-    @NamedQuery(
-            name = "getAllReports",
-            query = "SELECT r FROM Report AS r ORDER BY r.id DESC"
-    ),
-
-    @NamedQuery(
-            name = "getReportsCount",
-            query = "SELECT COUNT(r) FROM Report AS r"
-    ),
-    @NamedQuery(
-            name = "getMyAllReports",
-            query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
-        ),
-        @NamedQuery(
-            name = "getMyReportsCount",
-            query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
-        )
+        @NamedQuery(name = "getAllReports", query = "SELECT r FROM Report AS r ORDER BY r.id DESC"),
+        @NamedQuery(name = "getReportsCount", query = "SELECT COUNT(r) FROM Report AS r"),
+        @NamedQuery(name = "getMyAllReports", query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"),
+        @NamedQuery(name = "getMyReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"),
+        @NamedQuery(name = "getSameDivisionReports", query = "SELECT r FROM Report AS r WHERE  r.division = :division ORDER BY r.id DESC"),
+        @NamedQuery(name = "getDivReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.division = :division"),
+        @NamedQuery(name = "getApprovedReports", query = "SELECT r FROM Report AS r WHERE r.approval_flag = :approval_flag ORDER BY r.id DESC")
 })
 
 @Entity
@@ -46,6 +36,30 @@ public class Report {
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
 
     @Column(name = "report_date", nullable = false)
     private Date report_date;
@@ -62,7 +76,6 @@ public class Report {
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
-
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
@@ -130,6 +143,5 @@ public class Report {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
-
 
 }

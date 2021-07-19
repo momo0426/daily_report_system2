@@ -41,8 +41,9 @@ public class ReportsCreateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
 
             Report r = new Report();
-
-            r.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
+            Employee e = new Employee();
+            e = ((Employee)request.getSession().getAttribute("login_employee"));
+            r.setEmployee(e);
 
             Date report_date = new Date(System.currentTimeMillis());
             String rd_str = request.getParameter("report_date");
@@ -53,6 +54,10 @@ public class ReportsCreateServlet extends HttpServlet {
 
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
+            r.setDepartment(e.getDepartment());
+            r.setDivision(e.getDivision());
+            r.setApproval_flag(0);
+
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             r.setCreated_at(currentTime);
