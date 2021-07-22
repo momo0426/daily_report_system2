@@ -164,3 +164,29 @@ pre {
 h3 {
     font-size: larger;
 }
+table#employee_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#employee_list td {
+    padding: 10px 2%;
+}
+
+table#approval_list .report_name {
+    width: 18%;
+}
+table#approval_list .report_date {
+    width: 18%;
+}
+
+table#approval_list .report_approval {
+    width: 18%;
+}
+table#approval_list .report_title {
+    width: 18%;
+}
+
+table#approval_list .report_action {
+    width: 18%;
+}
