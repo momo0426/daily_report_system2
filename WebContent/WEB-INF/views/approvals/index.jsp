@@ -23,7 +23,7 @@
                         <td class="report_name"><c:out value="${report.employee.name}" /></td>
                         <td class="report_date"><fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' /></td>
                         <td class="report_title">${report.title}</td>
-                        <td>
+                        <td class="report_approval">
                             <c:choose>
                                 <c:when test="${report.approval_flag == 0}">未承認</c:when>
                                 <c:when test="${report.approval_flag == 1}">承認済</c:when>
