@@ -21,6 +21,10 @@ import javax.persistence.Table;
             name = "getDivisionsCount",
             query = "SELECT COUNT(dv) FROM Division AS dv"
             ),
+    @NamedQuery(
+            name = "checkRegisteredName",
+            query = "SELECT COUNT(dv) FROM Division AS dv WHERE dv.name = :name"
+        )
 
 })
 @Entity

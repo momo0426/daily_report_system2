@@ -18,13 +18,13 @@ import utils.DBUtil;
  * Servlet implementation class DivisionIndexServlet
  */
 @WebServlet("/divisions/index")
-public class DivisionIndexServlet extends HttpServlet {
+public class DivisionsIndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DivisionIndexServlet() {
+    public DivisionsIndexServlet() {
         super();
     }
 
