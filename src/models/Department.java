@@ -21,6 +21,10 @@ import javax.persistence.Table;
             name = "getDepartmentsCount",
             query = "SELECT COUNT(dp) FROM Department AS dp"
             ),
+    @NamedQuery(
+            name = "checkRegisteredDepartmentName",
+            query = "SELECT COUNT(dp) FROM Department AS dp WHERE dp.name = :name"
+        )
 
 })
 @Entity

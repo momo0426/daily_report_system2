@@ -1,4 +1,4 @@
-package controllers.division;
+package controllers.department;
 
 import java.io.IOException;
 

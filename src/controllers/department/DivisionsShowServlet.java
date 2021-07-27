@@ -1,4 +1,4 @@
-package controllers.division;
+package controllers.department;
 
 import java.io.IOException;
 
@@ -14,16 +14,16 @@ import models.Division;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class DivisionEditServlet
+ * Servlet implementation class DivisionsShowServlet
  */
-@WebServlet("/divisions/edit")
-public class DivisionsEditServlet extends HttpServlet {
+@WebServlet("/divisions/show")
+public class DivisionsShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DivisionsEditServlet() {
+    public DivisionsShowServlet() {
         super();
     }
 
@@ -38,10 +38,9 @@ public class DivisionsEditServlet extends HttpServlet {
         em.close();
 
         request.setAttribute("division", dv);
-        request.setAttribute("_token", request.getSession().getId());
-        request.getSession().setAttribute("division_id", dv.getId());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/divisions/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/divisions/show.jsp");
         rd.forward(request, response);
     }
+
 }
