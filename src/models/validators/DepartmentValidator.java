@@ -29,7 +29,7 @@ public class DepartmentValidator {
         // すでに登録されている部署名との重複チェック
         if (nameDuplicateCheckFlag) {
             EntityManager em = DBUtil.createEntityManager();
-            long departments_count = (long) em.createNamedQuery("checkRegisteredName", Long.class)
+            long departments_count = (long) em.createNamedQuery("checkRegisteredDepartmentName", Long.class)
                     .setParameter("name", name).getSingleResult();
             em.close();
             if (departments_count > 0) {
