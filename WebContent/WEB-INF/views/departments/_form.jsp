@@ -9,8 +9,8 @@
     </div>
 </c:if>
 
-<label for="division">課</label><br />
-<input type="text" name="name" value="${division.name}" />
+<label for="department">部</label><br />
+<input type="text" name="name" value="${department.name}" />
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />

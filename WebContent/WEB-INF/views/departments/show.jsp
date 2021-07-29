@@ -5,30 +5,30 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${division != null}">
-                <h2>${division.name}:詳細ページ</h2>
+            <c:when test="${department != null}">
+                <h2>${department.name}:詳細ページ</h2>
 
                 <table>
                     <tbody>
                         <tr>
-                            <th>課名</th>
-                            <td><c:out value="${division.name}" /></td>
+                            <th>部署名</th>
+                            <td><c:out value="${department.name}" /></td>
                         </tr>
                         <tr>
                             <th>登録日時</th>
-                            <td><fmt:formatDate value="${division.created_at}"
+                            <td><fmt:formatDate value="${department.created_at}"
                                     pattern="yyyy-MM-dd HH:mm:ss" /></td>
                         </tr>
                         <tr>
                             <th>更新日時</th>
-                            <td><fmt:formatDate value="${division.updated_at}"
+                            <td><fmt:formatDate value="${department.updated_at}"
                                     pattern="yyyy-MM-dd HH:mm:ss" /></td>
                         </tr>
                     </tbody>
                 </table>
 
                 <p>
-                    <a href="<c:url value='/divisions/edit?id=${division.id}' />">この課の情報を編集する</a>
+                    <a href="<c:url value='/departments/edit?id=${department.id}' />">この部の情報を編集する</a>
                 </p>
             </c:when>
             <c:otherwise>
@@ -37,7 +37,7 @@
         </c:choose>
 
         <p>
-            <a href="<c:url value='/divisions/index' />">一覧に戻る</a>
+            <a href="<c:url value='/departments/index' />">一覧に戻る</a>
         </p>
     </c:param>
 </c:import>

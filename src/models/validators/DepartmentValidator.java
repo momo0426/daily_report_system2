@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import models.Division;
+import models.Department;
 import utils.DBUtil;
 
 public class DepartmentValidator {
-    public static List<String> validate(Division dp, Boolean nameDuplicateCheckFlag) {
+    public static List<String> validate(Department dp, Boolean nameDuplicateCheckFlag) {
         List<String> errors = new ArrayList<String>();
 
         String name_error = validateName(dp.getName(), nameDuplicateCheckFlag);

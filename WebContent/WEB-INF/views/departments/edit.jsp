@@ -3,30 +3,19 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${division != null}">
-                <h2>${division.name} の課情報 編集ページ</h2>
-                <form method="POST" action="<c:url value='/divisions/update' />">
+            <c:when test="${department != null}">
+                <h2>${department.name} の情報 編集ページ</h2>
+                <form method="POST" action="<c:url value='/departments/update' />">
                     <c:import url="_form.jsp" />
                 </form>
 
-                <p><a href="#" onclick="confirmDestroy();">この課の情報を削除する</a></p>
-                <form method="POST" action="<c:url value='/divisions/destroy' />">
-                    <input type="hidden" name="_token" value="${_token}" />
-                </form>
-                <script>
-                   function confirmDestroy() {
-                       if(confirm("本当に削除してよろしいですか？")){
-                           document.forms[1].submit();
-                       }
-                   }
-                </script>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
 
-        <p><a href="<c:url value='/divisions/index' />">一覧に戻る</a></p>
+        <p><a href="<c:url value='/departments/index' />">一覧に戻る</a></p>
     </c:param>
 
 </c:import>
