@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Department;
 import models.Division;
 import models.validators.DivisionValidator;
 import utils.DBUtil;
@@ -40,6 +41,10 @@ public class DivisionsCreateServlet extends HttpServlet {
 
             Division dv = new Division();
             dv.setName(request.getParameter("name"));
+
+            int departmentId = Integer.parseInt(request.getParameter("department"));
+            Department department = em.find(Department.class, departmentId);
+            dv.setDepartment(department);
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             dv.setCreated_at(currentTime);

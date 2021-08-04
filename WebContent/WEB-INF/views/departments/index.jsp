@@ -37,6 +37,7 @@
             </c:forEach>
         </div>
         <p><a href="<c:url value='/departments/new' />">新規部署(部)の登録</a></p>
+        <p><a href="<c:url value='/alldepartments/index' />">部署管理画面に戻る</a></p>
 
     </c:param>
 </c:import>

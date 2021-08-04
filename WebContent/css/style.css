@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
  body {
-    color: #488c85;
+    color: #454545;
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
 
@@ -173,23 +173,40 @@ table#employee_list td {
     padding: 10px 2%;
 }
 
-table#approval_list .report_name {
-    width: 18%;
-}
-table#approval_list .report_date {
-    width: 18%;
+table#approval_list th {
+    width: 12.8%;
+    padding: 10px 2%;
 }
 
-table#approval_list .report_approval {
-    width: 18%;
-}
-table#approval_list .report_title {
-    width: 18%;
+table#approval_list td {
+    width: 12.8%;
+    padding: 10px 2%;
 }
 
-table#approval_list .report_action {
-    width: 18%;
+/* table#approval_list .report_name th{
+    width: 13%;
 }
+table#approval_list .report_department th{
+    width: 13%;
+}
+
+table#approval_list .report_division th{
+    width: 13%;
+}
+table#approval_list .report_date th{
+    width: 8%;
+}
+
+table#approval_list .report_approval th{
+    width: 13%;
+}
+table#approval_list .report_title th{
+    width: 13%;
+}
+
+table#approval_list .report_action th{
+    width: 7%;
+} */
 
 table#division_list th {
     width: 30%;
@@ -198,6 +215,16 @@ table#division_list th {
 
 table#division_list td {
     width: 30%;
+    padding: 10px 2%;
+}
+
+table#alldepartments_list th {
+    font-weight: bold;
+    width: 50%
+    padding: 10px 2%;
+}
+table#alldepartments_list td {
+    width: 50%;
     padding: 10px 2%;
 }
 

@@ -8,7 +8,13 @@
         </c:forEach>
     </div>
 </c:if>
-
+<label for="department">部</label><br />
+<select name="department">
+    <c:forEach var="department" items="${departments}">
+        <option value="${department.id}">${department.name}</option>
+    </c:forEach>
+</select>
+<br /><br />
 <label for="division">課</label><br />
 <input type="text" name="name" value="${division.name}" />
 <br /><br />

@@ -21,9 +21,8 @@ import javax.persistence.Table;
         @NamedQuery(name = "getReportsCount", query = "SELECT COUNT(r) FROM Report AS r"),
         @NamedQuery(name = "getMyAllReports", query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"),
         @NamedQuery(name = "getMyReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"),
-        @NamedQuery(name = "getSameDivisionReports", query = "SELECT r FROM Report AS r WHERE  r.division = :division ORDER BY r.id DESC"),
-        @NamedQuery(name = "getDivReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.division = :division"),
-        @NamedQuery(name = "getApprovedReports", query = "SELECT r FROM Report AS r WHERE r.approval_flag = :approval_flag ORDER BY r.id DESC")
+        @NamedQuery(name = "getSameDivisionReports", query = "SELECT r FROM Report AS r WHERE  r.division = :division AND r.approval_flag = 0 ORDER BY r.id DESC"),
+        @NamedQuery(name = "getSameDivisionReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.division = :division")
 })
 
 @Entity

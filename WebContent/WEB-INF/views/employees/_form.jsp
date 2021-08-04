@@ -18,11 +18,21 @@
 <br /><br />
 
 <label for="department">所属部</label><br />
-<input type="text" name="department" value="${employee.department.name}" />
+<!-- <input type="text" name="department" value="${employee.department.name}" /> -->
+<select name="department">
+    <c:forEach var="department" items="${department}">
+        <option value="${department.id}">${department.name}</option>
+    </c:forEach>
+</select>
 <br /><br />
 
 <label for="division">所属課</label><br />
-<input type="text" name="division" value="${employee.division.name}" />
+<!-- <input type="text" name="division" value="${employee.division.name}" /> -->
+<select name="division">
+    <c:forEach var="division" items="${division}">
+        <option value="${division.id}">${division.name}</option>
+    </c:forEach>
+</select>
 <br /><br />
 
 <label for="position">役職</label><br />

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Employee;
 import models.Report;
 import utils.DBUtil;
 
@@ -33,6 +34,7 @@ public class ApprovalIndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
+        Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
 
         int page = 1;
         try {
@@ -41,13 +43,16 @@ public class ApprovalIndexServlet extends HttpServlet {
             page = 1;
         }
 
-        List<Report> reports = em.createNamedQuery("getAllReports", Report.class)
+        List<Report> reports = em.createNamedQuery("getSameDivisionReports", Report.class)
+                .setParameter("division", login_employee.getDivision())
                 .setFirstResult(15 * (page - 1))
                 .setMaxResults(15)
                 .getResultList();
 
-        long reports_count = (long)em.createNamedQuery("getReportsCount", Long.class)
+        long reports_count = (long)em.createNamedQuery("getSameDivisionReportsCount", Long.class)
+                .setParameter("division", login_employee.getDivision())
                 .getSingleResult();
+
         em.close();
 
         request.setAttribute("reports", reports);
